@@ -8,6 +8,7 @@ const moves = document.getElementById('counter');
 const timer = document.getElementById('timer');
 const replayGame = document.getElementById('replay');
 const gameRepo = document.getElementById('repo');
+const gameSound = document.getElementById('gameSound');
 let cards = [...document.getElementsByClassName('card')];
 let cardWrapper = document.getElementsByClassName('cards')[0];
 let modal = document.getElementById('modal');
@@ -24,6 +25,9 @@ let timeUpdate; //holds the setTimeout for the time
 let hours = 0; //holds the hours
 let minutes = 0; // holds the minutes
 let seconds = 0; //holds the seconds
+
+//Set audio sound for the game.
+gameSound.setAttribute('src', 'sounds/Yanni-Nightingale.mp3');
 
 /**
  * @function time
@@ -113,6 +117,12 @@ function shuffleCard(cardArray) {
  *           the user clicks on them
  */
 function showCard() {
+  //play background sound once the card opens
+  if (!gameSound.play()) {
+    gameSound.play();
+  }
+  gameSound.loop = true;
+
   if (this === firstCard) return;
 
   if (timer.textContent === `00:00:00`) timeCounter();
@@ -228,6 +238,8 @@ function gameOver() {
   starsSummary.innerHTML = starWrapper.innerHTML;
   counterSummary.innerHTML = count + 1 + " Move(s)";
   modal.classList.remove('hide');
+  gameSound.setAttribute('src', 'sounds/congrats.wav');
+  gameSound.play();
 }
 
 modal.addEventListener('click', (evt) => {
