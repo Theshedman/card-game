@@ -28,7 +28,7 @@ let seconds = 0; //holds the seconds
 
 //Set audio sound for the game.
 gameSound.setAttribute('src', 'sounds/Yanni-Nightingale.mp3');
-
+gameSound.volume = 0.15;
 /**
  * @function time
  * @description updates the game timer once the player
@@ -82,6 +82,8 @@ function reset() {
     cardWrapper.appendChild(card);
     card.classList.remove('open', 'match', 'notMatch');
   }
+  //set the background sound back to the first track
+  if(gameSound.attributes.src.nodeValue !== 'sounds/Yanni-Nightingale.mp3') gameSound.attributes.src.nodeValue = 'sounds/Yanni-Nightingale.mp3';
 }
 
 //binding the game reset button
@@ -121,7 +123,6 @@ function showCard() {
   if (!gameSound.play()) {
     gameSound.play();
   }
-  gameSound.loop = true;
 
   if (this === firstCard) return;
 
@@ -238,9 +239,10 @@ function gameOver() {
   starsSummary.innerHTML = starWrapper.innerHTML;
   counterSummary.innerHTML = count + 1 + " Move(s)";
   modal.classList.remove('hide');
-  gameSound.setAttribute('src', 'sounds/congrats.wav');
+  gameSound.attributes.src.nodeValue = 'sounds/congrats.wav';
   gameSound.play();
 }
+console.log(gameSound.attributes)
 
 modal.addEventListener('click', (evt) => {
   if (evt.target === modal) exitModal();
