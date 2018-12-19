@@ -27,7 +27,7 @@ let seconds = 0; //holds the seconds
 
 /**
  * @function time
- * @description this updates the game timer once the player
+ * @description updates the game timer once the player
  *              starts playing the game.
  */
 function time() {
@@ -161,14 +161,18 @@ function checkMatch() {
  * @description It matches cards with the same image
  */
 function match() {
+  //match the first card against the second card.
   firstCard.classList.add('match');
   secondCard.classList.add('match');
 
+  //add the two matched cards to the matchCards array
   matchCards += 2;
+  //Terminate the game when all the 16 cards are successfully matched.
   if (matchCards === 16) {
     gameOver();
   }
 
+  //Reset variables' values.
   emptyVariables()
 }
 
@@ -177,13 +181,16 @@ function match() {
  * @description where there is no match on the opened cards this function is called
  */
 function notMatch() {
+  //Indicate that the two open cards do not match.
   firstCard.classList.add('notMatch');
   secondCard.classList.add('open', 'notMatch');
 
+  //close them back again since they do not match
   setTimeout(() => {
     firstCard.classList.remove('open', 'notMatch');
     secondCard.classList.remove('open', 'notMatch');
 
+    //Reset variables' values
     emptyVariables();
   }, 550);
 }

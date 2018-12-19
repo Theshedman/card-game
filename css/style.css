@@ -137,15 +137,15 @@ header h1 {
 
 .match {
   background: #057cac;
-  animation: match 1s;
+  animation: match forwards 1s;
 }
 
 @keyframes match {
   0% {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
   100% {
-    transform: rotateY(-180deg);
+    transform: rotateY(180deg);
   }
 }
 

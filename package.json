@@ -1,0 +1,21 @@
+{
+  "name": "card-game",
+  "version": "1.0.0",
+  "description": "This is a memory card game which need utmost concentration to play it well, thus known as concentration game.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Theshedman/card-game.git"
+  },
+  "author": "Ajaegbu Shedrack Iwuchukwu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Theshedman/card-game/issues"
+  },
+  "homepage": "https://github.com/Theshedman/card-game#readme"
+}
