@@ -242,7 +242,6 @@ function gameOver() {
   gameSound.attributes.src.nodeValue = 'sounds/congrats.wav';
   gameSound.play();
 }
-console.log(gameSound.attributes)
 
 modal.addEventListener('click', (evt) => {
   if (evt.target === modal) exitModal();
